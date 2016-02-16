@@ -16,6 +16,7 @@ end
 
 before do
   @posts = Post.all
+  @comments = Comment.all
 end
 
 get '/' do
@@ -41,9 +42,14 @@ end
 
 get '/comments/:id' do
   @post = Post.find(params[:id])
+  @comment = Comment.new
   erb :comments
 end
 
-post '/comments/:post_id' do
+post '/comments/:id' do
+  @post = Post.find(params[:id])
+  @comment = Comment.new params[:comments]
+  @comment.save
 
+  erb :comments
 end

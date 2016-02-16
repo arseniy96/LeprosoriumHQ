@@ -2,10 +2,10 @@
 <h4>Post details</h4>
 
 <div style="background-color: #fff5c2; padding: 15px; border-radius: 10px 0px; border: 1px solid #fff5a0">
-  <%= @row['content'] %>
+  <%= @post.content %>
   <br>
   <br>
-  <p>Написал <%= @row['login'] %> <%= @row['created_date'] %></p>
+  <p>Написал <%= @post.username %> <%= @post.created_at %></p>
 </div>
 <hr>
 <br>
@@ -18,12 +18,12 @@
     <%= com['content'] %>
     </p>
     <p>
-      <span style="font-size: 75%; color: #999">Написал <%=com['login'] %> <%= com['created_date'] %></span>
+      <span style="font-size: 75%; color: #999">Написал <%=com['username'] %> <%= com['created_at'] %></span>
     </p>
     <hr>
   <% end %>
 
-  <form action="/comments/<%= @row['id'] %>" method="POST" role="form">
+  <form action="/comments/<%= @post %>" method="POST" role="form">
 
     <div class="form-group">
       <textarea class="form-control" rows="4" name="content" placeholder="Напиши комментарий!"></textarea>
