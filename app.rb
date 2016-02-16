@@ -17,7 +17,7 @@ class Comment < ActiveRecord::Base
 end
 
 before do
-  @posts = Post.all
+  @posts = Post.order('created_at DESC')
   @comments = Comment.all
 end
 
@@ -51,6 +51,7 @@ end
 post '/comments/:id' do
   @post = Post.find(params[:id])
   @comment = Comment.new params[:comments]
+
   if !(@comment.save)
     @error = @comment.errors.full_messages.first
   end
