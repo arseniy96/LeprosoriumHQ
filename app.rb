@@ -52,9 +52,11 @@ post '/comments/:id' do
   @post = Post.find(params[:id])
   @comment = Comment.new params[:comments]
 
-  if !(@comment.save)
+  if @comment.save
+    erb :comments
+  else
     @error = @comment.errors.full_messages.first
+    erb :comments
   end
 
-  erb :comments
 end
