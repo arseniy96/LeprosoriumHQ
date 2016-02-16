@@ -6,9 +6,9 @@
       <br>
       <br>
 
-      <span style="font-size: 75%; color: #999">Написал <%= post['username'] %> <%= post['created_at'] %></span>
-
-    <!--<a href="/comments/<%= post['id'] %>">Comments</a>-->
+      <span style="font-size: 75%; color: #999">
+        Написал <%= post['username'] %> <%= post['created_at'] %>  <a href="/comments/<%= post['id'] %>">Comments</a>
+      </span>
     </p>
     <hr>
 <% end %>

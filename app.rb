@@ -7,6 +7,8 @@ require 'sinatra/activerecord'
 set :database, "sqlite3:leprosorium.db"
 
 class Post < ActiveRecord::Base
+  validates :username, presence: true
+  validates :content, presence: true
 end
 
 class Comment < ActiveRecord::Base
@@ -17,6 +19,7 @@ before do
 end
 
 get '/' do
+  @new = Post.new
 	erb :index
 end
 
@@ -27,6 +30,7 @@ end
 
 post '/new' do
   @new = Post.new params[:post]
+
   if @new.save
     redirect '/'
   else
@@ -35,8 +39,8 @@ post '/new' do
   end
 end
 
-get '/comments/:post_id' do
-
+get '/comments/:id' do
+  @post = Post.find(params[:id])
   erb :comments
 end
 
