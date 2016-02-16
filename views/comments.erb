@@ -1,0 +1,39 @@
+<div style="font-family: Georgia; width: 80%">
+<h4>Post details</h4>
+
+<div style="background-color: #fff5c2; padding: 15px; border-radius: 10px 0px; border: 1px solid #fff5a0">
+  <%= @row['content'] %>
+  <br>
+  <br>
+  <p>Написал <%= @row['login'] %> <%= @row['created_date'] %></p>
+</div>
+<hr>
+<br>
+<div style="padding: 15px;">
+  <h4>Comments:</h4>
+  <br>
+
+  <% @comments.each do |com| %>
+    <p>
+    <%= com['content'] %>
+    </p>
+    <p>
+      <span style="font-size: 75%; color: #999">Написал <%=com['login'] %> <%= com['created_date'] %></span>
+    </p>
+    <hr>
+  <% end %>
+
+  <form action="/comments/<%= @row['id'] %>" method="POST" role="form">
+
+    <div class="form-group">
+      <textarea class="form-control" rows="4" name="content" placeholder="Напиши комментарий!"></textarea>
+    </div>
+    <div class="form-group" style="width: 40%">
+      <input type="text" class="form-control" name="login" id="exampleInputEmail2" placeholder="Ваш логин">
+    </div>
+
+    <button type="submit" class="btn btn-primary">YARRR!</button>
+  </form>
+</div>
+
+</div>
