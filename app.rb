@@ -12,6 +12,8 @@ class Post < ActiveRecord::Base
 end
 
 class Comment < ActiveRecord::Base
+  validates :username, presence: true
+  validates :content, presence: true
 end
 
 before do
@@ -49,7 +51,9 @@ end
 post '/comments/:id' do
   @post = Post.find(params[:id])
   @comment = Comment.new params[:comments]
-  @comment.save
+  if !(@comment.save)
+    @error = @comment.errors.full_messages.first
+  end
 
   erb :comments
 end

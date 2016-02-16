@@ -23,13 +23,13 @@
     <hr>
   <% end %>
 
-  <form action="/comments/<%= @post %>" method="POST" role="form">
+  <form action="/comments/<%= @post.id %>" method="POST" role="form">
 
     <div class="form-group">
-      <textarea class="form-control" rows="4" name="content" placeholder="Напиши комментарий!"></textarea>
+      <textarea class="form-control" rows="4" name="comments[content]" placeholder="Напиши комментарий!"></textarea>
     </div>
     <div class="form-group" style="width: 40%">
-      <input type="text" class="form-control" name="login" id="exampleInputEmail2" placeholder="Ваш логин">
+      <input type="text" class="form-control" name="comments[username]" id="exampleInputEmail2" placeholder="Ваш логин">
     </div>
 
     <button type="submit" class="btn btn-primary">YARRR!</button>
