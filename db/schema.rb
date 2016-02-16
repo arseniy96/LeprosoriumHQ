@@ -14,16 +14,18 @@
 ActiveRecord::Schema.define(version: 20160216094029) do
 
   create_table "comments", force: :cascade do |t|
-    t.text    "username"
-    t.text    "content"
-    t.date    "datestamp"
-    t.integer "post_id"
+    t.text     "username"
+    t.text     "content"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "posts", force: :cascade do |t|
-    t.text "username"
-    t.text "content"
-    t.date "datestamp"
+    t.text     "username"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

@@ -1,14 +1,14 @@
 <h2>Latest posts:</h2><br>
 
-<% @results.each do |post| %>
+<% @posts.each do |post| %>
     <p>
       <%= post['content'] %>
       <br>
       <br>
-    <p>
-      <span style="font-size: 75%; color: #999">Написал <%= post['login'] %> <%= post['created_date'] %></span>
-    </p>
-    <a href="/comments/<%= post['id'] %>">Comments</a>
+
+      <span style="font-size: 75%; color: #999">Написал <%= post['username'] %> <%= post['created_at'] %></span>
+
+    <!--<a href="/comments/<%= post['id'] %>">Comments</a>-->
     </p>
     <hr>
 <% end %>

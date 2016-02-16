@@ -7,10 +7,10 @@
 <form action="/new" method="POST" role="form">
 
   <div class="form-group">
-    <textarea class="form-control" rows="5" name="content" placeholder="Ну давай, что накипело?"><%=@content%></textarea>
+    <textarea class="form-control" rows="5" name="post[content]" placeholder="Ну давай, что накипело?"></textarea>
   </div>
   <div class="form-group" style="width: 40%">
-    <input type="text" class="form-control" name="login"  value="<%=@login%>" placeholder="Ваш логин">
+    <input type="text" class="form-control" name="post[username]"  value="" placeholder="%username%">
   </div>
 
   <button type="submit" class="btn btn-primary">YARRR!</button>
